@@ -246,40 +246,38 @@
         .proc-step h4{ font-size:clamp(1.3rem,1.8vw,1.6rem); font-weight:700; margin-top:16px; }
         .proc-step p{ margin-top:12px; font-size:14.5px; color:rgba(250,248,241,0.72); line-height:1.6; }
 
-        #services-sec{ background:var(--cream); }
+        #services-sec{ background:var(--cream); position:relative; }
         .svc-row{ border-top:1px solid var(--line); padding:clamp(26px,3.6vw,38px) 0; display:flex; align-items:center; justify-content:space-between; gap:20px;
-            transition:background .4s var(--ease), padding-left .4s var(--ease); border-radius:4px; position:relative; cursor:pointer; }
+            transition:background .4s var(--ease), padding-left .4s var(--ease); border-radius:4px; position:relative; cursor:pointer; -webkit-tap-highlight-color:transparent; }
         #services .svc-row:last-child{ border-bottom:1px solid var(--line); }
-        .svc-row:hover{ background:var(--cream-muted); padding-left:16px; }
+        .svc-row:hover, .svc-row.tapped{ background:var(--cream-muted); padding-left:16px; }
         .svc-left{ display:flex; align-items:baseline; gap:20px; min-width:0; }
         .svc-num{ font-size:13px; font-weight:700; color:var(--olive); flex-shrink:0; }
         .svc-row h3{ font-size:clamp(1.3rem,2.6vw,2rem); font-weight:700; transition:transform .4s var(--ease); }
-        .svc-row:hover h3{ transform:translateX(6px); }
+        .svc-row:hover h3, .svc-row.tapped h3{ transform:translateX(6px); }
         .svc-row p.desc{ font-size:13.5px; color:var(--olive-soft); max-width:26ch; display:none; }
         @media (min-width:760px){ .svc-row p.desc{ display:block; } }
         .svc-arrow{ font-size:20px; color:var(--olive); transition:transform .4s var(--ease); flex-shrink:0; }
-        .svc-row:hover .svc-arrow{ transform:translate(6px,-6px); }
+        .svc-row:hover .svc-arrow, .svc-row.tapped .svc-arrow{ transform:translate(6px,-6px); }
 
-        /* Service tooltip popup */
+        /* Service tooltip popup — scoped to #services-sec, viewport-clamped, touch + desktop aware */
         .svc-tooltip{
-            position:fixed; background:var(--olive-dark); color:var(--cream); padding:20px 28px; border-radius:16px;
-            font-size:14px; line-height:1.6; max-width:340px; z-index:1000; opacity:0; pointer-events:none;
-            box-shadow:0 20px 60px rgba(0,0,0,0.3); transition:opacity .3s var(--ease), transform .3s var(--ease);
-            transform:translateY(8px);
+            position:fixed; background:var(--olive-dark); color:var(--cream); padding:18px 24px; border-radius:16px;
+            font-size:14px; line-height:1.6; width:min(340px, calc(100vw - 32px)); z-index:1000; opacity:0; pointer-events:none;
+            box-shadow:0 20px 60px rgba(0,0,0,0.3); transition:opacity .25s var(--ease), transform .25s var(--ease);
+            transform:translateY(8px); visibility:hidden;
         }
-        .svc-tooltip.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
-        .svc-tooltip .tt-title{ font-weight:700; font-size:15px; margin-bottom:6px; color:var(--cream); }
+        .svc-tooltip.show{ opacity:1; transform:translateY(0); pointer-events:auto; visibility:visible; }
+        .svc-tooltip .tt-title{ font-weight:700; font-size:14px; margin-bottom:6px; color:var(--cream); }
         .svc-tooltip .tt-desc{ color:rgba(250,248,241,0.75); font-size:13px; }
-
-        #bytengrow{ background:var(--olive-dark); color:var(--cream); text-align:center; position:relative; overflow:hidden; }
-        #bytengrow .bg-photo{ position:absolute; inset:0; opacity:.22; }
-        #bytengrow .bg-photo img{ height:100%; filter:grayscale(0.3) contrast(1.05); }
-        #bytengrow::before{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(32,43,31,0.4), var(--olive-dark) 78%); }
-        #bytengrow .wrap{ position:relative; z-index:2; }
-        #bytengrow .eyebrow{ color:var(--cream-muted); }
-        #bytengrow h2{ font-size:clamp(2.2rem,5vw,4.4rem); font-weight:700; letter-spacing:-0.02em; margin-top:16px; max-width:18ch; margin-inline:auto; line-height:1.08; }
-        #bytengrow p.copy{ margin-top:24px; max-width:56ch; margin-inline:auto; color:rgba(250,248,241,0.72); font-size:16px; line-height:1.65; }
-        #bytengrow .cta-link{ margin-top:32px; display:inline-flex; align-items:center; gap:9px; font-size:14px; font-weight:700; border-bottom:1px solid var(--cream); padding-bottom:6px; }
+        .svc-tooltip .tt-close{ display:none; }
+        @media (hover:none), (max-width:760px){
+            .svc-tooltip{ padding:16px 20px; font-size:13.5px; }
+            .svc-tooltip .tt-close{
+                display:flex; align-items:center; justify-content:center; position:absolute; top:8px; right:8px;
+                width:26px; height:26px; border-radius:50%; background:rgba(250,248,241,0.12); color:var(--cream); font-size:14px;
+            }
+        }
 
         #contact{ background:var(--cream); text-align:center; }
         #contact h2.head{ max-width:16ch; margin-inline:auto; }
@@ -322,8 +320,9 @@
     <span class="label" id="cursorLabel"></span>
 </div>
 
-<!-- Service Tooltip -->
+<!-- Service Tooltip (scoped to the "What I can build" section only) -->
 <div class="svc-tooltip" id="svcTooltip">
+    <button class="tt-close" id="ttClose" aria-label="Close">&times;</button>
     <div class="tt-title" id="ttTitle"></div>
     <div class="tt-desc" id="ttDesc"></div>
 </div>
@@ -653,17 +652,6 @@
     </div>
 </section>
 
-<!-- BYTENGROW -->
-<section id="bytengrow" class="pad">
-    <div class="bg-photo"><img src="https://images.unsplash.com/photo-1774901128215-3549cc686921?auto=format&fit=crop&w=1800&q=60" alt="" loading="lazy"></div>
-    <div class="wrap">
-        <p class="eyebrow reveal">Building With bytengrow</p>
-        <h2 class="reveal">Turning ambitious ideas into digital products.</h2>
-        <p class="copy reveal">bytengrow is a digital product studio focused on helping ambitious businesses design, build and improve the technology they depend on.</p>
-        <a href="#contact" class="cta-link reveal">Explore bytengrow <span>&rarr;</span></a>
-    </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact" class="pad">
     <div class="wrap">
@@ -705,6 +693,7 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
 
     const header = document.getElementById('siteHeader');
     window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', window.scrollY>40), {passive:true});
@@ -750,40 +739,88 @@
         });
     });
 
-    /* ---------- Service tooltip popup ---------- */
+    /* ---------- Service tooltip popup — scoped to "What I can build" rows only ---------- */
     const tooltip = document.getElementById('svcTooltip');
     const ttTitle = document.getElementById('ttTitle');
     const ttDesc = document.getElementById('ttDesc');
-    let tooltipTimeout;
+    const ttClose = document.getElementById('ttClose');
+    const servicesSection = document.getElementById('services-sec');
+    let activeRow = null;
 
-    document.querySelectorAll('.svc-row').forEach(row => {
-        row.addEventListener('mouseenter', function(e) {
-            const title = this.dataset.title;
-            const desc = this.dataset.desc;
-            ttTitle.textContent = 'How I built it';
-            ttDesc.textContent = desc;
-            tooltip.classList.add('show');
-            positionTooltip(e);
-        });
+    function hideTooltip(){
+        tooltip.classList.remove('show');
+        if(activeRow){ activeRow.classList.remove('tapped'); activeRow = null; }
+    }
 
-        row.addEventListener('mousemove', function(e) {
-            positionTooltip(e);
-        });
+    function showTooltipFor(row){
+        ttTitle.textContent = 'How I built it';
+        ttDesc.textContent = row.dataset.desc;
+        tooltip.classList.add('show');
+        activeRow = row;
+        row.classList.add('tapped');
+    }
 
-        row.addEventListener('mouseleave', function() {
-            tooltip.classList.remove('show');
-        });
-    });
-
-    function positionTooltip(e) {
-        let x = e.clientX + 20;
-        let y = e.clientY + 10;
+    function positionTooltip(x, y){
         const tw = tooltip.offsetWidth || 340;
         const th = tooltip.offsetHeight || 120;
-        if (x + tw > window.innerWidth - 20) x = e.clientX - tw - 20;
-        if (y + th > window.innerHeight - 20) y = window.innerHeight - th - 20;
-        tooltip.style.left = x + 'px';
-        tooltip.style.top = y + 'px';
+        let left = x + 20;
+        let top = y + 10;
+        if (left + tw > window.innerWidth - 16) left = x - tw - 20;
+        if (left < 16) left = 16;
+        if (top + th > window.innerHeight - 16) top = window.innerHeight - th - 16;
+        if (top < 16) top = 16;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+    }
+
+    function positionTooltipNearRow(row){
+        const r = row.getBoundingClientRect();
+        const tw = tooltip.offsetWidth || Math.min(340, window.innerWidth - 32);
+        const th = tooltip.offsetHeight || 140;
+        let left = (window.innerWidth - tw) / 2;
+        let top = r.bottom + 12;
+        if (top + th > window.innerHeight - 16){ top = r.top - th - 12; }
+        if (top < 16) top = 16;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+    }
+
+    if(!isTouch){
+        /* Desktop: hover + follow cursor, scoped strictly to services rows */
+        document.querySelectorAll('.svc-row').forEach(row => {
+            row.addEventListener('mouseenter', function(e){
+                showTooltipFor(this);
+                positionTooltip(e.clientX, e.clientY);
+            });
+            row.addEventListener('mousemove', function(e){
+                positionTooltip(e.clientX, e.clientY);
+            });
+            row.addEventListener('mouseleave', hideTooltip);
+        });
+    } else {
+        /* Touch: tap a row to open, anchored below it; tap again / outside / scroll closes it */
+        document.querySelectorAll('.svc-row').forEach(row => {
+            row.addEventListener('click', function(e){
+                e.stopPropagation();
+                if(activeRow === row){ hideTooltip(); return; }
+                showTooltipFor(this);
+                positionTooltipNearRow(this);
+            });
+        });
+        document.addEventListener('click', function(e){
+            if(activeRow && !tooltip.contains(e.target)) hideTooltip();
+        });
+        ttClose.addEventListener('click', function(e){ e.stopPropagation(); hideTooltip(); });
+    }
+
+    /* Always dismiss the tooltip on scroll (all breakpoints, especially phones) */
+    window.addEventListener('scroll', hideTooltip, {passive:true});
+    window.addEventListener('resize', hideTooltip);
+    /* Safety net: if the services section leaves the viewport, force-close it */
+    if('IntersectionObserver' in window){
+        new IntersectionObserver(entries=>{
+            entries.forEach(en=>{ if(!en.isIntersecting) hideTooltip(); });
+        }, { threshold: 0 }).observe(servicesSection);
     }
 
     /* ---------- spiderweb hero background ---------- */
