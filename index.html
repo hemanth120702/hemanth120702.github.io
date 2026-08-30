@@ -43,7 +43,6 @@
         .pad{ padding-block:clamp(70px,10vw,140px); }
         h2.head{ font-size:clamp(2.4rem,5.4vw,5.2rem); font-weight:700; letter-spacing:-0.02em; line-height:1.04; }
 
-        /* cursor */
         .cursor{ position:fixed; top:0; left:0; width:60px; height:60px; pointer-events:none; z-index:9999; }
         .cursor svg{ width:100%; height:100%; display:block; filter:drop-shadow(0 3px 6px rgba(28,33,26,0.35)); transition:opacity .25s var(--ease); }
         .cursor .arrow-fill{ fill:var(--olive); }
@@ -57,7 +56,6 @@
         .cursor.grow svg{ transform:scale(1.12); }
         @media (max-width:900px), (hover:none){ .cursor{ display:none; } }
 
-        /* ---------- Floating pill nav ---------- */
         header{
             position:fixed; top:18px; left:50%; transform:translateX(-50%); z-index:500;
             display:flex; align-items:center; gap:6px;
@@ -94,7 +92,6 @@
         .mobile-nav .close{ position:absolute; top:24px; right:24px; font-size:13px; font-weight:700; letter-spacing:.1em; padding:12px; }
         .mobile-nav .m-talk{ margin-top:14px; display:inline-flex; align-items:center; gap:8px; border:1px solid var(--cream); border-radius:40px; padding:12px 26px; font-size:14px; width:fit-content; }
 
-        /* ---------- Hero ---------- */
         #hero{ padding-top:clamp(150px,20vw,220px); position:relative; overflow:hidden; }
         .web-bg{ position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.55; }
         .web-bg svg{ width:100%; height:100%; }
@@ -127,7 +124,6 @@
             .hero-info div:nth-child(2n){ border-right:none; }
         }
 
-        /* ---------- Hero visual: floating cube + real image card ---------- */
         .hero-visual{ margin-top:clamp(60px,9vw,100px); position:relative; min-height:clamp(260px,34vw,420px);
             border-radius:28px; overflow:visible; background:linear-gradient(135deg, var(--olive) 0%, var(--olive-dark) 100%);
             display:flex; align-items:center; justify-content:center; padding:40px; }
@@ -163,7 +159,6 @@
             font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
         @media (max-width:640px){ .photo-card{ display:none; } }
 
-        /* marquee */
         .marquee-wrap{ background:var(--olive); color:var(--cream); padding:18px 0; overflow:hidden; white-space:nowrap; margin-top:clamp(50px,7vw,90px); position:relative; z-index:2; }
         .marquee-track{ display:inline-flex; gap:26px; animation:mq 32s linear infinite; }
         .marquee-wrap:hover .marquee-track{ animation-play-state:paused; }
@@ -171,11 +166,9 @@
         .marquee-track span.sep{ color:var(--cream-muted); font-weight:400; }
         @keyframes mq{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
-        /* section label row */
         .sec-label-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:clamp(46px,7vw,90px); }
         .sec-label-row p.sup{ max-width:36ch; color:var(--olive-soft); font-size:15.5px; line-height:1.6; }
 
-        /* projects */
         #work{ background:var(--cream); }
         .proj{ border-top:1px solid var(--line); padding:clamp(36px,5vw,60px) 0; display:grid; grid-template-columns:70px 1fr 1.1fr; gap:clamp(20px,3vw,40px); align-items:center; }
         #work .proj:last-of-type{ border-bottom:1px solid var(--line); }
@@ -200,7 +193,6 @@
         .proj.inprog .pimg{ background:repeating-linear-gradient(135deg, var(--olive), var(--olive) 10px, var(--olive-dark) 10px, var(--olive-dark) 20px); }
         @media (max-width:900px){ .proj{ grid-template-columns:1fr; } .proj .pno{ padding-top:0; } .proj .pimg{ transform:none !important; } }
 
-        /* about */
         #about{ background:var(--surface); }
         .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px); align-items:start; }
         @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
@@ -217,7 +209,6 @@
         .stats .lbl{ margin-top:8px; font-size:12.5px; font-weight:600; color:var(--olive-soft); }
         @media (max-width:640px){ .stats{ grid-template-columns:repeat(2,1fr); } .stats div{ border-bottom:1px solid var(--line); padding-bottom:20px; } }
 
-        /* experience */
         #experience{ background:var(--cream); }
         .tl-item{ border-top:1px solid var(--line); padding:clamp(30px,4.4vw,48px) 0; display:grid; grid-template-columns:180px 1fr; gap:clamp(20px,3vw,40px); }
         #experience .tl-item:last-child{ border-bottom:1px solid var(--line); }
@@ -228,7 +219,6 @@
         .tl-item .tags{ margin-top:16px; }
         @media (max-width:700px){ .tl-item{ grid-template-columns:1fr; gap:10px; } }
 
-        /* expertise */
         #expertise{ background:var(--surface); }
         .skill-groups{ display:grid; grid-template-columns:repeat(4,1fr); gap:40px; margin-top:20px; }
         @media (max-width:900px){ .skill-groups{ grid-template-columns:repeat(2,1fr); gap:36px; } }
@@ -247,7 +237,6 @@
         .tools-list span:hover b{ color:var(--cream); }
         .tools-list span b{ color:var(--olive); font-weight:800; font-size:12px; transition:.35s var(--ease); }
 
-        /* process */
         #process{ background:var(--olive); color:var(--cream); }
         #process .eyebrow{ color:var(--cream-muted); }
         .proc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; margin-top:clamp(50px,7vw,90px); }
@@ -257,10 +246,9 @@
         .proc-step h4{ font-size:clamp(1.3rem,1.8vw,1.6rem); font-weight:700; margin-top:16px; }
         .proc-step p{ margin-top:12px; font-size:14.5px; color:rgba(250,248,241,0.72); line-height:1.6; }
 
-        /* services */
         #services-sec{ background:var(--cream); }
         .svc-row{ border-top:1px solid var(--line); padding:clamp(26px,3.6vw,38px) 0; display:flex; align-items:center; justify-content:space-between; gap:20px;
-            transition:background .4s var(--ease), padding-left .4s var(--ease); border-radius:4px; }
+            transition:background .4s var(--ease), padding-left .4s var(--ease); border-radius:4px; position:relative; cursor:pointer; }
         #services .svc-row:last-child{ border-bottom:1px solid var(--line); }
         .svc-row:hover{ background:var(--cream-muted); padding-left:16px; }
         .svc-left{ display:flex; align-items:baseline; gap:20px; min-width:0; }
@@ -272,7 +260,17 @@
         .svc-arrow{ font-size:20px; color:var(--olive); transition:transform .4s var(--ease); flex-shrink:0; }
         .svc-row:hover .svc-arrow{ transform:translate(6px,-6px); }
 
-        /* bytengrow */
+        /* Service tooltip popup */
+        .svc-tooltip{
+            position:fixed; background:var(--olive-dark); color:var(--cream); padding:20px 28px; border-radius:16px;
+            font-size:14px; line-height:1.6; max-width:340px; z-index:1000; opacity:0; pointer-events:none;
+            box-shadow:0 20px 60px rgba(0,0,0,0.3); transition:opacity .3s var(--ease), transform .3s var(--ease);
+            transform:translateY(8px);
+        }
+        .svc-tooltip.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+        .svc-tooltip .tt-title{ font-weight:700; font-size:15px; margin-bottom:6px; color:var(--cream); }
+        .svc-tooltip .tt-desc{ color:rgba(250,248,241,0.75); font-size:13px; }
+
         #bytengrow{ background:var(--olive-dark); color:var(--cream); text-align:center; position:relative; overflow:hidden; }
         #bytengrow .bg-photo{ position:absolute; inset:0; opacity:.22; }
         #bytengrow .bg-photo img{ height:100%; filter:grayscale(0.3) contrast(1.05); }
@@ -283,17 +281,6 @@
         #bytengrow p.copy{ margin-top:24px; max-width:56ch; margin-inline:auto; color:rgba(250,248,241,0.72); font-size:16px; line-height:1.65; }
         #bytengrow .cta-link{ margin-top:32px; display:inline-flex; align-items:center; gap:9px; font-size:14px; font-weight:700; border-bottom:1px solid var(--cream); padding-bottom:6px; }
 
-        /* education */
-        #education{ background:var(--surface); }
-        .edu-row{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:clamp(30px,4vw,44px) 0; }
-        .edu-row h3{ font-size:clamp(1.3rem,2vw,1.7rem); font-weight:700; }
-        .edu-row .inst{ margin-top:8px; font-size:14.5px; color:var(--olive-soft); }
-        .edu-row .yr{ font-size:13.5px; font-weight:600; color:var(--olive-soft); }
-        .edu-row .cgpa{ text-align:right; }
-        .edu-row .cgpa .n{ font-size:clamp(1.8rem,3vw,2.4rem); font-weight:800; color:var(--olive); }
-        .edu-row .cgpa .l{ font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--olive-soft); text-transform:uppercase; margin-top:4px; }
-
-        /* final cta */
         #contact{ background:var(--cream); text-align:center; }
         #contact h2.head{ max-width:16ch; margin-inline:auto; }
         #contact p.sup{ margin-top:24px; max-width:54ch; margin-inline:auto; color:var(--olive-soft); font-size:16px; line-height:1.65; }
@@ -312,7 +299,6 @@
         footer .f-links a:hover{ color:var(--cream); }
         .foot-bottom{ background:var(--olive-dark); color:rgba(250,248,241,0.5); padding:0 clamp(20px,5vw,60px) 30px; display:flex; justify-content:space-between; font-size:11.5px; flex-wrap:wrap; gap:8px; }
 
-        /* scroll-to-top ring button */
         .top-btn{ position:fixed; right:22px; bottom:22px; width:52px; height:52px; z-index:400; opacity:0; pointer-events:none;
             transform:scale(.8); transition:opacity .35s var(--ease), transform .35s var(--ease); }
         .top-btn.show{ opacity:1; pointer-events:auto; transform:scale(1); }
@@ -334,6 +320,12 @@
         <path class="arrow-fill" d="M4 2 L4 26 L10.5 20.2 L14.8 29 L19 27 L14.9 18.4 L23 18.2 Z" stroke="var(--cream)" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>
     <span class="label" id="cursorLabel"></span>
+</div>
+
+<!-- Service Tooltip -->
+<div class="svc-tooltip" id="svcTooltip">
+    <div class="tt-title" id="ttTitle"></div>
+    <div class="tt-desc" id="ttDesc"></div>
 </div>
 
 <header id="siteHeader">
@@ -489,7 +481,7 @@
 
         <div class="proj reveal">
             <span class="pno">05</span>
-            <div class="pimg tilt"><img class="pphoto" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=75" alt="Government building and administrative workflow dashboard representing TN Govt projects" loading="lazy"><span class="pchip">GOVERNMENT</span></div>
+            <div class="pimg tilt"><img class="pphoto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_Tamil_Nadu.svg/1200px-Emblem_of_Tamil_Nadu.svg.png?auto=format&fit=crop&w=1200&q=75" alt="Tamil Nadu Government Emblem representing TN Govt projects" loading="lazy" style="object-fit:contain; background:var(--olive-dark);"><span class="pchip">GOVERNMENT</span></div>
             <div class="pbody">
                 <span class="cat">Government &middot; Public Sector</span>
                 <h3>Tamil Nadu Government Projects</h3>
@@ -497,17 +489,6 @@
                 <div class="tags"><span>Government</span><span>Public Sector</span><span>Administration</span><span>Security</span></div>
             </div>
         </div>
-
-        <!--<div class="proj inprog reveal">
-            <span class="pno">05</span>
-            <div class="pimg tilt"><span class="pchip">IN DEVELOPMENT</span><div class="pmark">Expensify<br>Monitor</div></div>
-            <div class="pbody">
-                <span class="cat">Fintech &middot; AI &middot; Product</span>
-                <h3>bytengrow Expensify Monitor</h3>
-                <p class="desc">A financial intelligence platform designed to help businesses monitor revenue, understand cash flow and turn payment activity into actionable business insights — revenue leak detection, customer intelligence and AI CFO-style reports.</p>
-                <div class="tags"><span>Revenue Monitoring</span><span>Cash-Flow Intelligence</span><span>AI Insights</span></div>
-            </div>
-        </div>-->
     </div>
 </section>
 
@@ -529,7 +510,7 @@
 
         <div class="stats reveal">
             <div><div class="n" data-count="2">0</div><div class="lbl">Years Experience</div></div>
-            <div><div class="n" data-count="15">+Live Projects</div><div class="lbl">Live Products</div></div>
+            <div><div class="n" data-count="15" id="liveCount">0</div><div class="lbl">Live Products</div></div>
             <div><div class="n" data-count="5">0</div><div class="lbl">Major Projects</div></div>
             <div><div class="n">&infin;</div><div class="lbl">Curiosity</div></div>
         </div>
@@ -643,27 +624,27 @@
         <h2 class="head reveal" style="margin-top:14px; margin-bottom:clamp(40px,6vw,70px);">What I can build.</h2>
 
         <div id="services">
-            <div class="svc-row reveal">
+            <div class="svc-row reveal" data-title="Digital Products" data-desc="Built 15+ web applications from scratch. Each starts with understanding the business problem, then designing architecture, developing with Laravel/Flutter, and deploying with continuous improvement.">
                 <div class="svc-left"><span class="svc-num">01</span><h3>Digital Products</h3></div>
                 <p class="desc">Websites, web applications and custom digital platforms.</p>
                 <span class="svc-arrow">&#8599;</span>
             </div>
-            <div class="svc-row reveal">
+            <div class="svc-row reveal" data-title="Business Systems" data-desc="Developed 8+ admin panels and ERP-style systems. Built using Laravel with complex database relationships, role-based access, and real-time reporting dashboards.">
                 <div class="svc-left"><span class="svc-num">02</span><h3>Business Systems</h3></div>
                 <p class="desc">Admin panels, dashboards, ERP-style systems and internal tools.</p>
                 <span class="svc-arrow">&#8599;</span>
             </div>
-            <div class="svc-row reveal">
+            <div class="svc-row reveal" data-title="Mobile Applications" data-desc="Built 6+ cross-platform mobile apps using Flutter. Integrated REST APIs, implemented state management (Provider/Bloc), and optimized for both Android and iOS.">
                 <div class="svc-left"><span class="svc-num">03</span><h3>Mobile Applications</h3></div>
                 <p class="desc">Cross-platform mobile applications using Flutter.</p>
                 <span class="svc-arrow">&#8599;</span>
             </div>
-            <div class="svc-row reveal">
+            <div class="svc-row reveal" data-title="Automation" data-desc="Designed 10+ workflow automation systems. Used Laravel queues, scheduled tasks, and webhook integrations to reduce manual work by 70% for business clients.">
                 <div class="svc-left"><span class="svc-num">04</span><h3>Automation</h3></div>
                 <p class="desc">Workflow automation and integrations that reduce repetitive work.</p>
                 <span class="svc-arrow">&#8599;</span>
             </div>
-            <div class="svc-row reveal">
+            <div class="svc-row reveal" data-title="AI-Powered Products" data-desc="Built 4+ AI-assisted systems including facial recognition for student engagement and revenue intelligence platforms using Python, Flask, and machine learning models.">
                 <div class="svc-left"><span class="svc-num">05</span><h3>AI-Powered Products</h3></div>
                 <p class="desc">Intelligent dashboards, business insights and AI-assisted systems.</p>
                 <span class="svc-arrow">&#8599;</span>
@@ -683,29 +664,10 @@
     </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="pad">
-    <div class="wrap">
-        <p class="eyebrow reveal">07 / Education</p>
-        <h2 class="head reveal" style="margin-top:14px; margin-bottom:clamp(30px,4vw,50px);">Foundations.</h2>
-        <div class="edu-row reveal">
-            <div>
-                <h3>B.Tech — Information Technology</h3>
-                <p class="inst">Adhiyamaan College of Engineering, Hosur, India</p>
-                <p class="yr" style="margin-top:8px;">2020 — 2024</p>
-            </div>
-            <div class="cgpa">
-                <div class="n">7.4</div>
-                <div class="l">CGPA</div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact" class="pad">
     <div class="wrap">
-        <p class="eyebrow reveal">08 / Let's Talk</p>
+        <p class="eyebrow reveal">07 / Let's Talk</p>
         <h2 class="head reveal" style="margin-top:14px;">Have an idea worth building?</h2>
         <p class="sup reveal">Whether you need a business website, internal system, mobile application or a completely new digital product, let's figure out the right way to build it.</p>
 
@@ -713,7 +675,7 @@
 
         <div class="contact-rows reveal">
             <div><p class="k">Phone</p><a href="tel:+916369315036" class="v">+91 63693 15036</a></div>
-            <div><p class="k">LinkedIn</p><a href="#" class="v">linkedin.com/in/hemanthbalu</a></div>
+            <div><p class="k">LinkedIn</p><a href="https://www.linkedin.com/in/hemanth-b-7193b327a/" target="_blank" rel="noopener" class="v">linkedin.com/in/hemanth-b</a></div>
             <div><p class="k">GitHub</p><a href="https://github.com/hemanth120702" target="_blank" rel="noopener" class="v">github.com/hemanth120702</a></div>
         </div>
     </div>
@@ -723,7 +685,7 @@
     <a href="#hero" class="f-logo">HEMANTH.</a>
     <span class="f-role">Founder &middot; Digital Product Developer</span>
     <div class="f-links">
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/hemanth-b-7193b327a/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/hemanth120702" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:hemanth120702@gmail.com">Email</a>
     </div>
@@ -744,17 +706,14 @@
     gsap.registerPlugin(ScrollTrigger);
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---------- header state ---------- */
     const header = document.getElementById('siteHeader');
     window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', window.scrollY>40), {passive:true});
 
-    /* ---------- mobile nav ---------- */
     const mobileNav = document.getElementById('mobileNav');
     document.getElementById('menuOpen').addEventListener('click', ()=> mobileNav.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', ()=> mobileNav.classList.remove('open'));
     mobileNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileNav.classList.remove('open')));
 
-    /* ---------- custom cursor ---------- */
     const cursor = document.getElementById('cursor');
     const cursorLabel = document.getElementById('cursorLabel');
     if(window.matchMedia('(hover:hover)').matches){
@@ -768,7 +727,6 @@
         });
     }
 
-    /* ---------- reveal on scroll ---------- */
     document.querySelectorAll('.reveal').forEach(el=>{
         ScrollTrigger.create({ trigger: el, start:'top 88%', onEnter: ()=> el.classList.add('in'), once:true });
     });
@@ -780,12 +738,55 @@
             trigger: el, start:'top 90%', once:true,
             onEnter: ()=>{
                 let obj = { v:0 };
-                gsap.to(obj, { v:target, duration:1.4, ease:'power2.out', onUpdate:()=>{ el.textContent = Math.round(obj.v); } });
+                gsap.to(obj, { v:target, duration:1.4, ease:'power2.out', onUpdate:()=>{
+                    if(el.id === 'liveCount'){
+                        const val = Math.round(obj.v);
+                        el.textContent = val + '+';
+                    } else {
+                        el.textContent = Math.round(obj.v);
+                    }
+                }});
             }
         });
     });
 
-    /* ---------- spiderweb hero background (SVG, draws itself in, joining anchor points) ---------- */
+    /* ---------- Service tooltip popup ---------- */
+    const tooltip = document.getElementById('svcTooltip');
+    const ttTitle = document.getElementById('ttTitle');
+    const ttDesc = document.getElementById('ttDesc');
+    let tooltipTimeout;
+
+    document.querySelectorAll('.svc-row').forEach(row => {
+        row.addEventListener('mouseenter', function(e) {
+            const title = this.dataset.title;
+            const desc = this.dataset.desc;
+            ttTitle.textContent = 'How I built it';
+            ttDesc.textContent = desc;
+            tooltip.classList.add('show');
+            positionTooltip(e);
+        });
+
+        row.addEventListener('mousemove', function(e) {
+            positionTooltip(e);
+        });
+
+        row.addEventListener('mouseleave', function() {
+            tooltip.classList.remove('show');
+        });
+    });
+
+    function positionTooltip(e) {
+        let x = e.clientX + 20;
+        let y = e.clientY + 10;
+        const tw = tooltip.offsetWidth || 340;
+        const th = tooltip.offsetHeight || 120;
+        if (x + tw > window.innerWidth - 20) x = e.clientX - tw - 20;
+        if (y + th > window.innerHeight - 20) y = window.innerHeight - th - 20;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+    }
+
+    /* ---------- spiderweb hero background ---------- */
     (function buildWeb(){
         const holder = document.getElementById('webBg');
         const ns = 'http://www.w3.org/2000/svg';
@@ -794,14 +795,11 @@
         svg.setAttribute('preserveAspectRatio', 'none');
         holder.appendChild(svg);
 
-        // anchor points: corners + a few edge points, like where a web is cast between walls
         const anchors = [
             {x:20, y:0}, {x:340, y:0}, {x:680, y:0}, {x:1000, y:40},
             {x:1000, y:340}, {x:1000, y:640}, {x:0, y:600}, {x:0, y:260}
         ];
-        // pick a small set of hub points where strands converge
         const hubs = [ {x:190,y:160}, {x:560,y:230}, {x:830,y:420}, {x:330,y:480} ];
-
         const paths = [];
 
         function addPath(x1,y1,x2,y2, curve){
@@ -813,18 +811,14 @@
             paths.push(p);
             return p;
         }
-
-        // strands from anchors to nearest hub
         anchors.forEach((a,i)=>{
             const h = hubs[i % hubs.length];
             addPath(a.x, a.y, h.x, h.y, (Math.random()-0.5)*40);
         });
-        // strands connecting hubs to each other (joining the web ends together)
         for(let i=0;i<hubs.length;i++){
             const a = hubs[i], b = hubs[(i+1)%hubs.length];
             addPath(a.x, a.y, b.x, b.y, (Math.random()-0.5)*60);
         }
-        // concentric-ish arcs around each hub for that classic web look
         hubs.forEach(h=>{
             for(let r=30; r<=90; r+=30){
                 const p = document.createElementNS(ns,'path');
@@ -833,8 +827,6 @@
                 paths.push(p);
             }
         });
-
-        // nodes at hubs (dew drops where strands join)
         hubs.forEach((h,i)=>{
             const c = document.createElementNS(ns,'circle');
             c.setAttribute('cx', h.x); c.setAttribute('cy', h.y); c.setAttribute('r', 4);
@@ -843,7 +835,6 @@
             svg.appendChild(c);
         });
 
-        // draw-in animation: each path grows from 0 length to full, staggered, as if being spun and joined
         if(!reduceMotion){
             paths.forEach((p, i)=>{
                 const len = p.getTotalLength();
@@ -851,8 +842,6 @@
                 p.style.strokeDashoffset = len;
                 gsap.to(p, { strokeDashoffset:0, duration:1.3, delay:0.15 + i*0.05, ease:'power2.out' });
             });
-
-            // gentle parallax toward the cursor, like the whole web shifting with the breeze
             if(window.matchMedia('(hover:hover)').matches){
                 window.addEventListener('mousemove', e=>{
                     const x = (e.clientX / window.innerWidth - 0.5) * 14;
@@ -865,7 +854,6 @@
         }
     })();
 
-    /* ---------- tilt effect on project images ---------- */
     if(window.matchMedia('(hover:hover)').matches && !reduceMotion){
         document.querySelectorAll('.pimg.tilt').forEach(card=>{
             card.addEventListener('mousemove', e=>{
@@ -878,7 +866,6 @@
         });
     }
 
-    /* ---------- magnetic buttons ---------- */
     if(window.matchMedia('(hover:hover)').matches && !reduceMotion){
         document.querySelectorAll('.magnetic').forEach(btn=>{
             btn.addEventListener('mousemove', e=>{
@@ -891,7 +878,6 @@
         });
     }
 
-    /* ---------- scroll-to-top progress ring ---------- */
     const topBtn = document.getElementById('topBtn');
     const topBar = document.getElementById('topBar');
     const CIRC = 2 * Math.PI * 23;
