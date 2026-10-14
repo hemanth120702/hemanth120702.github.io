@@ -160,7 +160,7 @@
         @media (max-width:640px){ .photo-card{ display:none; } }
 
         .marquee-wrap{ background:var(--olive); color:var(--cream); padding:18px 0; overflow:hidden; white-space:nowrap; margin-top:clamp(50px,7vw,90px); position:relative; z-index:2; }
-        .marquee-track{ display:inline-flex; gap:26px; animation:mq 32s linear infinite; }
+        .marquee-track{ display:inline-flex; gap:26px; animation:mq 70s linear infinite; }
         .marquee-wrap:hover .marquee-track{ animation-play-state:paused; }
         .marquee-track span{ font-size:clamp(15px,1.6vw,20px); font-weight:700; letter-spacing:.02em; display:inline-flex; align-items:center; gap:26px; }
         .marquee-track span.sep{ color:var(--cream-muted); font-weight:400; }
@@ -197,6 +197,11 @@
         .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px); align-items:start; }
         @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
         #about h2.head{ max-width:14ch; }
+        .about-photo{
+            margin-top:clamp(28px,4vw,44px); max-width:380px; aspect-ratio:4/5;
+            border-radius:24px; overflow:hidden; box-shadow:0 24px 50px rgba(28,33,26,0.18);
+        }
+        .about-photo img{ object-position:center top; }
         .about-copy p{ font-size:16px; line-height:1.7; color:var(--olive-soft); margin-top:20px; }
         .about-copy p:first-child{ margin-top:0; }
         .about-copy strong{ color:var(--text); font-weight:700; }
@@ -478,7 +483,7 @@
             </div>
         </div>
 
-       <div class="proj reveal">
+        <div class="proj reveal">
             <span class="pno">05</span>
             <div class="pimg tilt"><img class="pphoto" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tamil_Nadu_map.png" alt="Map of Tamil Nadu state, India" loading="lazy" style="object-fit:contain; background:var(--olive-dark);"><span class="pchip">GOVERNMENT</span></div>
             <div class="pbody">
@@ -486,6 +491,18 @@
                 <h3>Tamil Nadu Government Projects</h3>
                 <p class="desc">Developing and maintaining multiple digital solutions for Tamil Nadu Government departments — administrative portals, workflow automation systems and citizen-facing applications designed for scale and security.</p>
                 <div class="tags"><span>Government</span><span>Public Sector</span><span>Administration</span><span>Security</span></div>
+            </div>
+        </div>
+
+        <div class="proj reveal">
+            <span class="pno">06</span>
+            <div class="pimg tilt"><span class="pmark">Vedic Homes</span><span class="pchip">REAL ESTATE</span></div>
+            <div class="pbody">
+                <span class="cat">Real Estate &middot; Website</span>
+                <h3>Vedic Homes</h3>
+                <p class="desc">A modern website presenting homes and property offerings with a clean, trustworthy experience for prospective buyers.</p>
+                <div class="tags"><span>Real Estate</span><span>Website</span><span>Responsive</span><span>UX</span></div>
+                <a href="https://www.vedichomes.co.in" target="_blank" rel="noopener" class="plink">Visit site &#8599;</a>
             </div>
         </div>
 
@@ -499,6 +516,9 @@
             <div class="reveal">
                 <p class="eyebrow">02 / About</p>
                 <h2 class="head" style="margin-top:14px;">More than a developer.</h2>
+                <div class="about-photo">
+                    <img src="hemanth3.jpg" alt="Hemanth Balu, Founder and Digital Product Developer" loading="lazy">
+                </div>
             </div>
             <div class="about-copy reveal">
                 <p>I'm Hemanth — a digital product developer focused on turning ideas, business problems and complex workflows into <strong>useful software.</strong></p>
@@ -511,7 +531,7 @@
         <div class="stats reveal">
             <div><div class="n" data-count="2">0</div><div class="lbl">Years Experience</div></div>
             <div><div class="n" data-count="15" id="liveCount">0</div><div class="lbl">Live Products</div></div>
-            <div><div class="n" data-count="5">0</div><div class="lbl">Major Projects</div></div>
+            <div><div class="n" data-count="6">0</div><div class="lbl">Major Projects</div></div>
             <div><div class="n">&infin;</div><div class="lbl">Curiosity</div></div>
         </div>
     </div>
